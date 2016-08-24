@@ -12,22 +12,25 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="Hello World!"
+        android:id="@+id/textView" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageViewCircle"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
         android:src="@drawable/circle"
-        android:background="@drawable/circle" />
+        android:layout_below="@+id/textView"
+        android:layout_alignLeft="@+id/imageViewCircle2"
+        android:layout_alignStart="@+id/imageViewCircle2"
+        android:layout_marginTop="96dp" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageViewCircle2"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/imageViewCircle"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/circle" />
+        android:layout_marginTop="111dp"
+        android:src="@drawable/circle" />
 </RelativeLayout>

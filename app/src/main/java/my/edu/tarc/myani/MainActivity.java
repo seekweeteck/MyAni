@@ -18,9 +18,9 @@ import android.widget.ImageView;
 import java.io.File;
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     ImageView imageViewCircle, imageViewCircle2;
-    Animation animationCircle;
+    GrowAnimation growAnimation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,35 +28,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         imageViewCircle = (ImageView)findViewById(R.id.imageViewCircle);
+        imageViewCircle.setOnClickListener(this);
         imageViewCircle2 = (ImageView)findViewById(R.id.imageViewCircle2);
-        startAnimation();
+        imageViewCircle2.setOnClickListener(this);
     }
 
 
-    public void startAnimation(){
-        // load the animation
-        animationCircle = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.zoom_out);
-        //animationCircle.setRepeatCount(Animation.INFINITE);
-        animationCircle.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
+    @Override
+    public void onClick(View view) {
+        int id = view.getId();
 
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                Animation animationCirlce = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.zoom_out);
-                animationCirlce.setAnimationListener(this);
-                imageViewCircle.startAnimation(animationCirlce);
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-        });
-
-        imageViewCircle.startAnimation(animationCircle);
+        if(id == R.id.imageViewCircle){
+            growAnimation = new GrowAnimation(this, imageViewCircle);
+        }else if(id == R.id.imageViewCircle2){
+            growAnimation = new GrowAnimation(this, imageViewCircle2);
+        }
     }
-
 }
