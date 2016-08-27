@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
 
 /**
  * Created by kweetecksee on 24/08/16.
